@@ -44,16 +44,13 @@ public class Main {
             }
             numbers = new Arabic(number1, number2);
         } else {
-
             numbers = new Roman(parser_input[0], parser_input[2]);
-            if (((Roman) numbers).getRomanNumber1ToInt() < 1 || ((Roman) numbers).getRomanNumber2ToInt() > 10) {
-                throw new Exception();
-            } else if (((Roman) numbers).getRomanNumber1ToInt() < 1 || ((Roman) numbers).getRomanNumber1ToInt() > 10) {
+            if (((Roman) numbers).getRomanNumber1ToInt() > 10 || ((Roman) numbers).getRomanNumber2ToInt() > 10) {
                 throw new Exception();
             }
-             if ((((Roman) numbers).getRomanNumber1ToInt() - ((Roman) numbers).getRomanNumber2ToInt()) < 0 || ((((Roman) numbers).getRomanNumber1ToInt() / ((Roman) numbers).getRomanNumber2ToInt()) < 0)) {
-                    throw new Exception("//т.к. в римской системе нет отрицательных чисел | невозможен вывод нуля ");
-                 }
+            if ((((Roman) numbers).getRomanNumber1ToInt() / ((Roman) numbers).getRomanNumber2ToInt()) < 0) {
+                throw new Exception("//т.к. в римской системе невозможен вывод отрицательных чисел");
+            }
         }
 
         if (operation.equals("+")) {
